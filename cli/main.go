@@ -41,6 +41,22 @@ func main() {
 			Usage: "the app icon path (displays to the left of the toast)",
 		},
 		cli.StringFlag{
+			Name:  "icon-crop",
+			Usage: "the icon crop style (circle or square/default)",
+		},
+		cli.StringFlag{
+			Name:  "hero",
+			Usage: "the hero image path (large banner at top)",
+		},
+		cli.StringFlag{
+			Name:  "inline",
+			Usage: "the inline image path (smaller image below content)",
+		},
+		cli.StringFlag{
+			Name:  "attribution",
+			Usage: "attribution text (small text below content)",
+		},
+		cli.StringFlag{
 			Name:  "activation-type",
 			Value: "protocol",
 			Usage: "the type of action to invoke when the user clicks the toast",
@@ -82,6 +98,10 @@ func main() {
 		title := c.String("title")
 		message := c.String("message")
 		icon := c.String("icon")
+		iconCrop := c.String("icon-crop")
+		hero := c.String("hero")
+		inline := c.String("inline")
+		attribution := c.String("attribution")
 		activationType := c.String("activation-type")
 		activationArg := c.String("activation-arg")
 		audio, _ := toast.Audio(c.String("audio"))
@@ -114,6 +134,10 @@ func main() {
 			Title:               title,
 			Message:             message,
 			Icon:                icon,
+			IconCrop:            iconCrop,
+			Hero:                hero,
+			Inline:              inline,
+			Attribution:         attribution,
 			Actions:             actions,
 			ActivationType:      activationType,
 			ActivationArguments: activationArg,
